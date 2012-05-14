@@ -163,27 +163,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--<plugin>-->
-            <!--<groupId>org.apache.maven.plugins</groupId>-->
-            <!--<artifactId>maven-surefire-plugin</artifactId>-->
-            <!--<version>2.12</version>-->
-            <!--<configuration>-->
-            <!--<argLine>-server -Xms128m -Xmx512m -XX:MaxPermSize=256m -XX:+TieredCompilation</argLine>-->
-            <!--<systemProperties>-->
-            <!--<property>-->
-            <!--<name>run.mode</name>-->
-            <!--<value>test</value>-->
-            <!--</property>-->
-            <!--<property>-->
-            <!--<name>akka.mode</name>-->
-            <!--<value>test</value>-->
-            <!--</property>-->
-            <!--</systemProperties>-->
-            <!--<includes>-->
-            <!--<include>**/*Spec.class</include>-->
-            <!--</includes>-->
-            <!--</configuration>-->
-            <!--</plugin>-->
         </plugins>
     </build>
 </project>
