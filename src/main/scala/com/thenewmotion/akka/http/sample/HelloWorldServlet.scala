@@ -51,10 +51,10 @@ class HelloWorldServlet extends StaticAkkaHttpServlet {
 
 class HelloWorldActor extends Actor {
 
-  protected def receive = {
+  def receive = {
     case req: HttpServletRequest =>
 
-      // doing some heavy work here then
+      // doing some heavy work here
 
       //will be called for completing request
       val func = (res: HttpServletResponse) => {
