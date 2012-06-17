@@ -1,10 +1,11 @@
 package com.thenewmotion.akka.http.sample
 
-import com.thenewmotion.akka.http.{EndpointsAgent, StaticAkkaHttpServlet}
+import com.thenewmotion.akka.http.{FutureResponse, EndpointsAgent, StaticAkkaHttpServlet}
 import com.thenewmotion.akka.http.Endpoints._
 import javax.servlet.http.{HttpServletRequest, HttpServletResponse}
 import com.thenewmotion.akka.http.Async.Complete
 import akka.actor.{ActorSystem, ActorRef, Actor, Props}
+import akka.dispatch.{Promise, Future}
 
 /**
  * @author Yaroslav Klymko
@@ -13,24 +14,22 @@ class HelloWorldServlet extends StaticAkkaHttpServlet {
 
   var helloWorldActor: Option[ActorRef] = None
 
-  val helloWorldFunction: Processing = (req: HttpServletRequest) => {
-
+  val helloWorldFunction = RequestResponse {
+    req =>
     // doing some heavy work here then
 
     // creating function responsible for completing request, this function might not be called if request expired
-    (res: HttpServletResponse) => {
-      res.getWriter.write(
-        <html>
-          <body>
-            <h1>Hello World</h1>
-            <h3>endpoint function</h3>
-          </body>
-        </html>.toString())
-      res.getWriter.close()
-
-      // our callback whether response succeed
-      (b: Boolean) => println("SUCCEED: " + b)
-    }
+      FutureResponse {
+        res =>
+          res.getWriter.write(
+            <html>
+              <body>
+                <h1>Hello World</h1>
+                <h3>endpoint function</h3>
+              </body>
+            </html>.toString())
+          res.getWriter.close()
+      }
   }
 
 
@@ -57,22 +56,19 @@ class HelloWorldActor extends Actor {
       // doing some heavy work here
 
       //will be called for completing request
-      val func = (res: HttpServletResponse) => {
-        res.getWriter.write(
-          <html>
-            <body>
-              <h1>Hello World</h1>
-              <h3>endpoint actor</h3>
-            </body>
-          </html>.toString())
-        res.getWriter.close()
-
-
-        // our callback whether response succeed
-        (b: Boolean) => println("SUCCEED: " + b)
+      val future = FutureResponse {
+        res =>
+          res.getWriter.write(
+            <html>
+              <body>
+                <h1>Hello World</h1>
+                <h3>endpoint actor</h3>
+              </body>
+            </html>.toString())
+          res.getWriter.close()
       }
 
       //passing func to AsyncActor, created for this AsyncContext
-      sender ! Complete(func)
+      sender ! Complete(future)
   }
 }
