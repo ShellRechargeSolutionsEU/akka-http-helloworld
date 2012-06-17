@@ -1,6 +1,6 @@
 package com.thenewmotion.akka.http.sample
 
-import com.thenewmotion.akka.http.StaticAkkaHttpServlet
+import com.thenewmotion.akka.http.{EndpointsAgent, StaticAkkaHttpServlet}
 import com.thenewmotion.akka.http.Endpoints._
 import javax.servlet.http.{HttpServletRequest, HttpServletResponse}
 import com.thenewmotion.akka.http.Async.Complete
@@ -34,8 +34,8 @@ class HelloWorldServlet extends StaticAkkaHttpServlet {
   }
 
 
-  override def onSystemInit(system: ActorSystem) {
-    super.onSystemInit(system)
+  override def onSystemInit(system: ActorSystem, endpoints: EndpointsAgent) {
+    super.onSystemInit(system, endpoints)
 
     helloWorldActor = Some(system.actorOf(Props[HelloWorldActor]))
   }

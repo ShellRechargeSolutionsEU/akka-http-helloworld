@@ -5,14 +5,14 @@
 
     <groupId>com.thenewmotion.chargenetwork</groupId>
     <artifactId>akka-http-helloworld</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <url>https://github.com/thenewmotion/akka-http-helloworld</url>
 
     <properties>
-        <scala.version>2.9.1</scala.version>
-        <akka.version>2.0</akka.version>
+        <scala.version>2.9.2</scala.version>
+        <akka.version>2.0.1</akka.version>
         <tomcat.version>7.0.26</tomcat.version>
     </properties>
 
@@ -38,18 +38,25 @@
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-actor</artifactId>
-            <version>2.0</version>
+            <version>${akka.version}</version>
         </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-slf4j</artifactId>
-            <version>2.0</version>
+            <version>${akka.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
 
         <dependency>
             <groupId>com.thenewmotion.akka</groupId>
             <artifactId>akka-http</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.3-SNAPSHOT</version>
         </dependency>
 
 
@@ -93,7 +100,7 @@
         <dependency>
             <groupId>org.specs2</groupId>
             <artifactId>specs2_${scala.version}</artifactId>
-            <version>1.8.2</version>
+            <version>1.10</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -125,9 +132,9 @@
         </resources>
         <plugins>
             <plugin>
-                <groupId>org.scala-tools</groupId>
-                <artifactId>maven-scala-plugin</artifactId>
-                <version>2.15.2</version>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.0.2</version>
                 <configuration>
                     <args>
                         <arg>-unchecked</arg>
