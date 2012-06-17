@@ -5,7 +5,7 @@
 
     <groupId>com.thenewmotion.chargenetwork</groupId>
     <artifactId>akka-http-helloworld</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <url>https://github.com/thenewmotion/akka-http-helloworld</url>
@@ -56,7 +56,7 @@
         <dependency>
             <groupId>com.thenewmotion.akka</groupId>
             <artifactId>akka-http</artifactId>
-            <version>0.0.3-SNAPSHOT</version>
+            <version>0.0.4-SNAPSHOT</version>
         </dependency>
 
 
