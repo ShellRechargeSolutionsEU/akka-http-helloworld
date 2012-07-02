@@ -1,16 +1,18 @@
 package com.thenewmotion.akka.http.sample
 
-import com.thenewmotion.akka.http.{FutureResponse, EndpointsAgent, StaticAkkaHttpServlet}
+import com.thenewmotion.akka.http._
 import com.thenewmotion.akka.http.Endpoints._
 import javax.servlet.http.{HttpServletRequest, HttpServletResponse}
 import com.thenewmotion.akka.http.Async.Complete
 import akka.actor.{ActorSystem, ActorRef, Actor, Props}
 import akka.dispatch.{Promise, Future}
+import scala.Some
+import com.thenewmotion.akka.http.Async.Complete
 
 /**
  * @author Yaroslav Klymko
  */
-class HelloWorldServlet extends StaticAkkaHttpServlet {
+class HelloWorldServlet extends AkkaHttpServlet with StaticEndpoints {
 
   var helloWorldActor: Option[ActorRef] = None
 
