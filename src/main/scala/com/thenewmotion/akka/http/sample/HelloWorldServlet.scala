@@ -2,10 +2,8 @@ package com.thenewmotion.akka.http.sample
 
 import com.thenewmotion.akka.http._
 import com.thenewmotion.akka.http.Endpoints._
-import javax.servlet.http.{HttpServletRequest, HttpServletResponse}
-import com.thenewmotion.akka.http.Async.Complete
+import javax.servlet.http.{HttpServletRequest}
 import akka.actor.{ActorSystem, ActorRef, Actor, Props}
-import akka.dispatch.{Promise, Future}
 import scala.Some
 import com.thenewmotion.akka.http.Async.Complete
 
@@ -70,7 +68,7 @@ class HelloWorldActor extends Actor {
           res.getWriter.close()
       }
 
-      //passing func to AsyncActor, created for this AsyncContext
+      //passing future to AsyncActor, created for this AsyncContext
       sender ! Complete(future)
   }
 }

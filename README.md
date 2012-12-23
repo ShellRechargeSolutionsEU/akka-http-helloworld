@@ -7,7 +7,7 @@ HelloWorldServlet
 -----------------
 
 ```scala
-class HelloWorldServlet extends StaticAkkaHttpServlet {
+class HelloWorldServlet extends AkkaHttpServlet with StaticEndpoints {
 
   var helloWorldActor: Option[ActorRef] = None
 
