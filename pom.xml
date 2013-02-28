@@ -11,13 +11,13 @@
 
     <groupId>com.thenewmotion.chargenetwork</groupId>
     <artifactId>akka-http-helloworld</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <url>https://github.com/thenewmotion/akka-http-helloworld</url>
 
     <properties>
-        <akka.version>2.1.0</akka.version>
+        <akka.version>2.1.1</akka.version>
         <tomcat.version>7.0.34</tomcat.version>
     </properties>
 
@@ -31,7 +31,7 @@
         <dependency>
             <groupId>com.thenewmotion.akka</groupId>
             <artifactId>akka-http_${scala.version}</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
 
         <dependency>
