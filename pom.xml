@@ -31,7 +31,7 @@
         <dependency>
             <groupId>com.thenewmotion.akka</groupId>
             <artifactId>akka-http_${scala.version}</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.2</version>
         </dependency>
 
         <dependency>
