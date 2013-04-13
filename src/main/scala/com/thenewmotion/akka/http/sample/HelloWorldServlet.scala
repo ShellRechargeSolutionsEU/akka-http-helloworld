@@ -2,7 +2,7 @@ package com.thenewmotion.akka.http.sample
 
 import com.thenewmotion.akka.http._
 import com.thenewmotion.akka.http.Endpoints._
-import javax.servlet.http.{HttpServletRequest}
+import javax.servlet.http.HttpServletRequest
 import akka.actor.{ActorSystem, ActorRef, Actor, Props}
 import scala.Some
 import com.thenewmotion.akka.http.Async.Complete
@@ -33,9 +33,8 @@ class HelloWorldServlet extends AkkaHttpServlet with StaticEndpoints {
   }
 
 
-  override def onSystemInit(system: ActorSystem, endpoints: EndpointsAgent) {
+  override def onSystemInit(system: ActorSystem, endpoints: ActorRef) {
     super.onSystemInit(system, endpoints)
-
     helloWorldActor = Some(system.actorOf(Props[HelloWorldActor]))
   }
 

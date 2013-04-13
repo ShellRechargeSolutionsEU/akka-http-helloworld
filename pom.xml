@@ -17,21 +17,15 @@
     <url>https://github.com/thenewmotion/akka-http-helloworld</url>
 
     <properties>
-        <akka.version>2.1.1</akka.version>
+        <akka.version>2.1.2</akka.version>
         <tomcat.version>7.0.34</tomcat.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.0.3</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.thenewmotion.akka</groupId>
             <artifactId>akka-http_${scala.version}</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.3-SNAPSHOT</version>
         </dependency>
 
         <dependency>
